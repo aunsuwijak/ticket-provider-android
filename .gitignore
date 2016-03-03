@@ -34,4 +34,5 @@ captures/
 *.iml
 /.idea/workspace.xml
 /.idea/libraries
+/.idea/misc.xml
 .DS_Store
