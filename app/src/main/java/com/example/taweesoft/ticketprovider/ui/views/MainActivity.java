@@ -1,7 +1,9 @@
-package com.example.taweesoft.ticketprovider;
+package com.example.taweesoft.ticketprovider.ui.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.taweesoft.ticketprovider.R;
 
 public class MainActivity extends AppCompatActivity {
 
