@@ -1,5 +1,6 @@
 package com.example.taweesoft.ticketprovider.managers;
 
+import com.example.taweesoft.ticketprovider.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -16,7 +17,7 @@ public class APIServiceFactory {
     public static APIService getInstance(){
         Gson gson = gsonBuilder.create();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://ticket-provider-staging.herokuapp.com/")
+                .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 

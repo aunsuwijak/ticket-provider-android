@@ -17,6 +17,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        production {
+            applicationId "com.example.taweesoft.ticketprovider"
+        }
+
+        staging {
+            applicationId "com.example.taweesoft.ticketprovider.staging"
+        }
+    }
 }
 
 dependencies {
