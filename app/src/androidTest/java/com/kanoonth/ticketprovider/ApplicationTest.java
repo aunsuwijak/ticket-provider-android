@@ -1,4 +1,4 @@
-package com.example.taweesoft.ticketprovider;
+package com.kanoonth.ticketprovider;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

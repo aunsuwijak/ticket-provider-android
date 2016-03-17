@@ -5,12 +5,13 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "com.example.taweesoft.ticketprovider"
+        applicationId "com.kanoonth.ticketprovider"
         minSdkVersion 23
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -20,11 +21,11 @@ android {
 
     productFlavors {
         production {
-            applicationId "com.example.taweesoft.ticketprovider"
+            applicationId "com.kanoonth.ticketprovider"
         }
 
         staging {
-            applicationId "com.example.taweesoft.ticketprovider.staging"
+            applicationId "com.kanoonth.ticketprovider.staging"
         }
     }
 }
