@@ -1,6 +1,6 @@
-package com.example.taweesoft.ticketprovider.managers;
+package com.kanoonth.ticketprovider.managers;
 
-import com.example.taweesoft.ticketprovider.Constants;
+import com.kanoonth.ticketprovider.Constants;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

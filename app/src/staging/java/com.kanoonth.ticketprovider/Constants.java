@@ -1,4 +1,4 @@
-package com.example.taweesoft.ticketprovider;
+package com.kanoonth.ticketprovider;
 
 /**
  * Created by TAWEESOFT on 3/12/16 AD.
