@@ -34,3 +34,4 @@ captures/
 *.iml
 .idea
 .DS_Store
+app/fabric.properties
