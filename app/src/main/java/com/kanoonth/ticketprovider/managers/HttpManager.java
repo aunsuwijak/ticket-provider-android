@@ -1,5 +1,7 @@
 package com.kanoonth.ticketprovider.managers;
 
+import android.content.Context;
+
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.kanoonth.ticketprovider.Constants;
@@ -46,4 +48,8 @@ public class HttpManager {
         APIService service = retrofit.create(APIService.class);
         return service;
     }
+
+    private Context mContext;
+
+    private HttpManager() { mContext = Contextor.getInstance().getContext(); }
 }
