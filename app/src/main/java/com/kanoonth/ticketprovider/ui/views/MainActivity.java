@@ -1,4 +1,4 @@
-package com.kanoonth.ticketprovider.views;
+package com.kanoonth.ticketprovider.ui.views;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
