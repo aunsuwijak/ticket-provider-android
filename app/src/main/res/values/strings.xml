@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TicketProvider</string>
+    <string name="app_developer">SQUARE</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="forgot_pass">Forgot your password ?</string>
 </resources>
