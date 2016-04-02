@@ -58,4 +58,5 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.google.zxing:core:3.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile 'net.simonvt.menudrawer:menudrawer:3.0.6'
 }
