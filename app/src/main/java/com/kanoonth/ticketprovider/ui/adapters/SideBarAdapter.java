@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kanoonth.ticketprovider.R;
+import com.kanoonth.ticketprovider.managers.Contextor;
 import com.kanoonth.ticketprovider.models.SideBarItem;
 
 import java.util.List;
