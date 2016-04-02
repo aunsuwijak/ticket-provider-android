@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/sidebar">
+    android:background="@color/colorCarade">
 
     <ListView
         android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
                 android:text="New Text"
                 android:id="@+id/tv_name"
                 android:textSize="@dimen/left_menu_primary_font_size"
-                android:textColor="@color/sunFlower" />
+                android:textColor="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
                 android:text="New Text"
                 android:id="@+id/tv_email"
                 android:textSize="@dimen/left_menu_primary_font_size"
-                android:textColor="@color/profile_desc" />
+                android:textColor="@color/colorButtermilk" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/text"
-            android:textColor="@color/sunFlower"
+            android:textColor="@color/colorPrimary"
             android:textSize="@dimen/left_menu_primary_font_size" />
     </LinearLayout>
 </LinearLayout>
