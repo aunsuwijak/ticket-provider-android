@@ -24,8 +24,6 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import net.simonvt.menudrawer.MenuDrawer;
-
 public class MainActivity extends AppCompatActivity {
 
     private MenuDrawer menuDrawer;
