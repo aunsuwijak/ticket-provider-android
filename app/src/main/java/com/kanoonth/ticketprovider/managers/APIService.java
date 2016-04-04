@@ -8,6 +8,8 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 /**
  * Created by TAWEESOFT on 3/3/16 AD.
@@ -15,8 +17,17 @@ import retrofit2.http.POST;
 public interface APIService {
 
     @POST("oauth/token")
-    Call<AccessToken> createAccessToken(@Body RequestBody body);
+    Call<AccessToken> accessTokenCreate(@Body RequestBody body);
+
+    @POST("api/v1/users")
+    Call<Element> userCreate(@Body Element user);
 
     @GET("api/v1/users/me")
-    Call<Element> getCurrentUser();
+    Call<Element> userMe();
+
+    @PUT("api/v1/users/{id}")
+    Call<Element> userUpdate(@Path("id") String id, @Body Element user);
+
+    @GET("api/v1/tickets")
+    Call<Element> ticketIndex();
 }

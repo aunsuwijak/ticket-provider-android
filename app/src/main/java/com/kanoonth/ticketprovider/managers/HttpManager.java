@@ -70,6 +70,7 @@ public class HttpManager {
                         return false;
                     }
                 })
+                .setDateFormat("yyyy-MM-dd")
                 .create();
 
         OkHttpClient client = httpClient.build();
