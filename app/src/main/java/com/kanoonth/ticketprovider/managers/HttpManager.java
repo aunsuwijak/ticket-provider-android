@@ -16,8 +16,8 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by TAWEESOFT on 3/3/16 AD.
@@ -70,6 +70,7 @@ public class HttpManager {
                         return false;
                     }
                 })
+                .setDateFormat("yyyy-MM-dd")
                 .create();
 
         OkHttpClient client = httpClient.build();
