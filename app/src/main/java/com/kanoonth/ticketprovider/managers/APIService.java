@@ -17,17 +17,17 @@ import retrofit2.http.Path;
 public interface APIService {
 
     @POST("oauth/token")
-    Call<AccessToken> accessTokenCreate(@Body RequestBody body);
+    Call<AccessToken> createAccessToken(@Body RequestBody body);
 
     @POST("api/v1/users")
-    Call<Element> userCreate(@Body Element user);
+    Call<Element> createUser(@Body Element user);
 
     @GET("api/v1/users/me")
-    Call<Element> userMe();
+    Call<Element> currentUser();
 
     @PUT("api/v1/users/{id}")
-    Call<Element> userUpdate(@Path("id") String id, @Body Element user);
+    Call<Element> updateUser(@Path("id") String id, @Body Element user);
 
     @GET("api/v1/tickets")
-    Call<Element> ticketIndex();
+    Call<Element> retrieveTickets();
 }
