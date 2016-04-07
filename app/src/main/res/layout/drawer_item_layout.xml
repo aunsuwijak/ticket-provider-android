@@ -8,9 +8,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/left_menu_each_vertial_margin"
-        android:layout_marginBottom="@dimen/left_menu_each_vertial_margin"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/left_menu_each_vertial_margin"
+        android:paddingBottom="@dimen/left_menu_each_vertial_margin"
+        android:id="@+id/linear_container">
 
         <ImageView
             android:layout_width="@dimen/left_menu_icon_size"

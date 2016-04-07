@@ -1,8 +1,11 @@
 package com.kanoonth.ticketprovider.ui.views;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +26,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     private MenuDrawer menuDrawer;
+    private int activeItem = 0;
+
     @Bind(R.id.sidebar) ListView sidebar;
     @Bind(R.id.img_profile)  ImageView img_profile;
     @Bind(R.id.tv_name) TextView tv_name;
@@ -49,14 +54,36 @@ public class MainActivity extends AppCompatActivity {
         SideBarItem events = new SideBarItem(getString(R.string.events),R.drawable.menu);
         SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets) , R.drawable.shopping);
         SideBarItem payments = new SideBarItem(getString(R.string.payment) , R.drawable.credit_card);
-        List<SideBarItem> items = new ArrayList<>();
+        final List<SideBarItem> items = new ArrayList<>();
         items.add(events);
         items.add(tickets);
         items.add(payments);
-        SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
+        items.get(0).setActive(true);
+        final SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
         sidebar.setAdapter(adapter);
 
         tv_name.setText("Ryan");
         tv_email.setText("ryan@hollywood.com");
+
+        sidebar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                SideBarItem active = items.get(activeItem);
+                active.setActive(!active.isActive());
+                SideBarItem currentItem = items.get(position);
+                currentItem.setActive(!currentItem.isActive());
+                adapter.notifyDataSetChanged();
+                menuDrawer.closeMenu(true);
+                activeItem = position;
+            }
+        });
+
+    }
+
+    public void replaceFragment(Fragment fragmnet) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragmnet)
+                .addToBackStack(null)
+                .commit();
     }
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kanoonth.ticketprovider.R;
@@ -37,12 +38,20 @@ public class SideBarAdapter extends ArrayAdapter<SideBarItem> {
         SideBarItem item = getItem(position);
         holder.icon_img.setImageResource(item.getImg());
         holder.text.setText(item.getText());
+        if(item.isActive()) {
+            holder.text.setTextColor(getContext().getColor(R.color.white));
+            holder.linear_container.setBackgroundColor(getContext().getColor(R.color.sunFlower));
+        }else{
+            holder.text.setTextColor(getContext().getColor(R.color.sunFlower));
+            holder.linear_container.setBackgroundColor(0);
+        }
         return convertView;
     }
 
     class ViewHolder {
         @Bind(R.id.text) public TextView text;
         @Bind(R.id.icon_img) public ImageView icon_img;
+        @Bind(R.id.linear_container) public LinearLayout linear_container;
 
         public ViewHolder(View v) {
             ButterKnife.bind(this,v);
