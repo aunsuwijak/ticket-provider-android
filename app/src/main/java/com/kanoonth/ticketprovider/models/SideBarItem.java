@@ -7,6 +7,7 @@ public class SideBarItem {
 
     private int img;
     private String text;
+    private boolean active;
 
     public SideBarItem(String text, int img) {
         this.text = text;
@@ -19,5 +20,13 @@ public class SideBarItem {
 
     public String getText() {
         return text;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

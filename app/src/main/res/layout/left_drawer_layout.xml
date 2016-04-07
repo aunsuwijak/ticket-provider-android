@@ -9,7 +9,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/sidebar"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/relativeLayout" />
+        android:layout_below="@+id/relativeLayout"
+        android:dividerHeight="0dp"
+        android:divider="@null" />
 
     <RelativeLayout
         android:layout_width="match_parent"
