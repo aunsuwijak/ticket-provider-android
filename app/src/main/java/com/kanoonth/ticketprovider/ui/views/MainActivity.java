@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.kanoonth.ticketprovider.R;
 import com.kanoonth.ticketprovider.models.SideBarItem;
 import com.kanoonth.ticketprovider.ui.adapters.SideBarAdapter;
+import com.kanoonth.ticketprovider.ui.fragments.TicketListFragment;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 import net.simonvt.menudrawer.MenuDrawer;
@@ -74,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 menuDrawer.closeMenu(true);
                 activeItem = position;
+                switch (position){
+                    case 1 :
+                        replaceFragment(new TicketListFragment());
+                }
             }
         });
     }
