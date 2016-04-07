@@ -15,6 +15,6 @@
     <dimen name="ticket_header_font_size">20sp</dimen>
     <dimen name="ticket_des_font_size">14sp</dimen>
     <dimen name="ticket_texts_margin">20dp</dimen>
-    <dimen name="left_menu_primary_font_size">11sp</dimen>
-    <dimen name="left_menu_each_vertial_margin">8dp</dimen>
+    <dimen name="left_menu_primary_font_size">16sp</dimen>
+    <dimen name="left_menu_each_vertial_margin">10dp</dimen>
 </resources>
