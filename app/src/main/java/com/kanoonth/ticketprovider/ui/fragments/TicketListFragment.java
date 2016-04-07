@@ -86,4 +86,9 @@ public class TicketListFragment extends Fragment {
         });
     }
 
+    @Nullable
+    @Override
+    public View getView() {
+        return super.getView();
+    }
 }
