@@ -35,6 +35,7 @@ public class TicketListFragment extends Fragment {
             "stand_up_comedy.png",
             "khon.png"
     };
+
     private String[] names = new String[] {
             "S2O Songkarn Festival",
             "Breezer Water War",
@@ -69,4 +70,9 @@ public class TicketListFragment extends Fragment {
         return view;
     }
 
+    @Nullable
+    @Override
+    public View getView() {
+        return super.getView();
+    }
 }
