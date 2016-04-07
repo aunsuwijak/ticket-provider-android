@@ -3,7 +3,9 @@ package com.kanoonth.ticketprovider.ui.views;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.kanoonth.ticketprovider.R;
 import com.kanoonth.ticketprovider.models.SideBarItem;
@@ -22,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
     private MenuDrawer menuDrawer;
     @Bind(R.id.sidebar) ListView sidebar;
+    @Bind(R.id.img_profile)  ImageView img_profile;
+    @Bind(R.id.tv_name) TextView tv_name;
+    @Bind(R.id.tv_email) TextView tv_email;
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -49,5 +55,8 @@ public class MainActivity extends AppCompatActivity {
         items.add(payments);
         SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
         sidebar.setAdapter(adapter);
+
+        tv_name.setText("Ryan");
+        tv_email.setText("ryan@hollywood.com");
     }
 }
