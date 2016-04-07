@@ -4,8 +4,11 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< 9af79206e8595e3088e614025e6f9bd150af0c6c
 import android.view.View;
 import android.widget.AdapterView;
+=======
+>>>>>>> [#116318863] Show profile item in sidebar
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.img_profile)  ImageView img_profile;
     @Bind(R.id.tv_name) TextView tv_name;
     @Bind(R.id.tv_email) TextView tv_email;
+<<<<<<< 9af79206e8595e3088e614025e6f9bd150af0c6c
+=======
+
+>>>>>>> [#116318863] Show profile item in sidebar
 
     @Override
     protected void attachBaseContext(Context newBase) {
