@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.tv_name) TextView tv_name;
     @Bind(R.id.tv_email) TextView tv_email;
 
-
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
@@ -77,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 activeItem = position;
             }
         });
-
     }
 
     public void replaceFragment(Fragment fragmnet) {
