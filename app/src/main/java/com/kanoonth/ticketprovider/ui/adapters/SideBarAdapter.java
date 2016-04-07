@@ -29,7 +29,7 @@ public class SideBarAdapter extends ArrayAdapter<SideBarItem> {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
         if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.drawer_item_layout,null,false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.drawer_item_layout,parent,false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }else
@@ -45,7 +45,7 @@ public class SideBarAdapter extends ArrayAdapter<SideBarItem> {
         @Bind(R.id.icon_img) public ImageView icon_img;
 
         public ViewHolder(View v) {
-            ButterKnife.bind(v);
+            ButterKnife.bind(this,v);
         }
     }
 }

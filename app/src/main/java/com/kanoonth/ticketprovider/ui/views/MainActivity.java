@@ -35,8 +35,19 @@ public class MainActivity extends AppCompatActivity {
         menuDrawer.setContentView(R.layout.activity_main);
         menuDrawer.setMenuView(R.layout.left_drawer_layout);
         ButterKnife.bind(menuDrawer);
+        ButterKnife.bind(this);
+        initComponents();
     }
 
     public void initComponents() {
+        SideBarItem events = new SideBarItem(getString(R.string.events),R.drawable.menu);
+        SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets) , R.drawable.shopping);
+        SideBarItem payments = new SideBarItem(getString(R.string.payment) , R.drawable.credit_card);
+        List<SideBarItem> items = new ArrayList<>();
+        items.add(events);
+        items.add(tickets);
+        items.add(payments);
+        SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
+        sidebar.setAdapter(adapter);
     }
 }

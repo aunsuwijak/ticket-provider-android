@@ -8,24 +8,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="@dimen/left_menu_each_vertial_margin"
+        android:layout_marginBottom="@dimen/left_menu_each_vertial_margin"
         android:gravity="center_vertical">
 
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="@dimen/left_menu_icon_size"
+            android:layout_height="@dimen/left_menu_icon_size"
             android:id="@+id/icon_img"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/menu" />
+            android:layout_marginRight="@dimen/left_menu_icon_margin"
+            android:src="@drawable/menu"
+            android:layout_marginLeft="@dimen/left_menu_icon_margin" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Text"
             android:id="@+id/text"
-            android:textColor="@color/sunFlower" />
+            android:textColor="@color/sunFlower"
+            android:textSize="@dimen/left_menu_primary_font_size" />
     </LinearLayout>
 </LinearLayout>
