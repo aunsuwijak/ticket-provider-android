@@ -3,6 +3,5 @@
     <color name="colorPrimary">#fdc80e</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="profile_desc">#ffeeb1</color>
-    <color name="white">#FFF</color>
+    <color name="ProfileDesc">#ffeeb1</color>
 </resources>
