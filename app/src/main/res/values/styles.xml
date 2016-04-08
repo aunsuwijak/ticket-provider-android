@@ -10,4 +10,9 @@
 
     <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
+
+    <style name="ButtonPrimary" parent="@style/Base.Widget.AppCompat.Button">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
 </resources>
