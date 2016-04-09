@@ -36,7 +36,7 @@
                 android:text="@string/app_developer"
                 android:id="@+id/textView"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/sunFlower"
+                android:textColor="@color/colorPrimary"
                 android:layout_below="@+id/imageView"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/logo_top_margin" />
@@ -72,7 +72,8 @@
                         android:layout_weight="1"
                         android:layout_marginLeft="@dimen/input_field_left_margin"
                         android:hint="Email address"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        style="@style/EditTextStyle" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -97,7 +98,8 @@
                         android:layout_marginLeft="@dimen/input_field_left_margin"
                         android:hint="Password"
                         android:singleLine="true"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        style="@style/EditTextStyle" />
                 </LinearLayout>
 
                 <Button
@@ -121,7 +123,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/forgot_pass"
                         android:id="@+id/forgot_pass_txt"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="@color/textColor" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -129,7 +132,8 @@
                         android:text="@string/register"
                         android:id="@+id/register_txt"
                         android:layout_gravity="right"
-                        android:layout_marginTop="@dimen/sign_text_each_top_margin" />
+                        android:layout_marginTop="@dimen/sign_text_each_top_margin"
+                        android:textColor="@color/textColor" />
 
                 </LinearLayout>
 
