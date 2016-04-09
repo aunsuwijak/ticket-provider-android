@@ -38,23 +38,6 @@ public class TicketListFragment extends Fragment {
             "stand_up_comedy.png",
             "khon.png"
     };
-    private String[] names = new String[] {
-            "S2O Songkarn Festival",
-            "Breezer Water War",
-            "Bangkok Motorshow",
-            "Loy Kra Thong 2016",
-            "Stand Up Comedy 11 #18",
-            "Khon"
-    };
-
-    private String[] desc = new String[] {
-            "13-15 April 2016",
-            "13-15 April 2016",
-            "20-25 September 2016",
-            "14 November 2016",
-            "23 May 2016",
-            "1 August 2016"
-    };
 
     private String[] names = new String[] {
             "S2O Songkarn Festival",
@@ -102,21 +85,4 @@ public class TicketListFragment extends Fragment {
             }
         });
     }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ticket_list_layout,container,false);
-        ButterKnife.bind(this, view);
-        List<TicketTemp> tickets = new ArrayList<>();
-        for(int i =0;i<images.length;i++)
-            tickets.add(new TicketTemp(images[i],names[i],desc[i]));
-        TicketListAdapter adapter = new TicketListAdapter(tickets,url);
-        rv.setAdapter(adapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
-        rv.setLayoutManager(layoutManager);
-        rv.setAdapter(adapter);
-        return view;
-    }
-
 }
