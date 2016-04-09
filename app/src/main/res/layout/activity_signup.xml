@@ -75,7 +75,8 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/input_field_left_margin"
                     android:hint="Email address"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    style="@style/EditTextStyle" />
             </LinearLayout>
 
             <LinearLayout
@@ -99,7 +100,8 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/input_field_left_margin"
                     android:hint="Name"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    style="@style/EditTextStyle" />
             </LinearLayout>
 
             <LinearLayout
@@ -124,7 +126,8 @@
                     android:layout_marginLeft="@dimen/input_field_left_margin"
                     android:hint="Password"
                     android:singleLine="true"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    style="@style/EditTextStyle" />
             </LinearLayout>
 
             <LinearLayout
@@ -148,7 +151,8 @@
                     android:layout_marginLeft="@dimen/input_field_left_margin"
                     android:hint="Confirm Password"
                     android:singleLine="true"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    style="@style/EditTextStyle" />
             </LinearLayout>
 
             <Button
@@ -167,7 +171,8 @@
                 android:text="@string/have_account"
                 android:id="@+id/have_account_txt"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="13dp" />
+                android:layout_marginTop="13dp"
+                android:textColor="@color/textColor" />
 
         </LinearLayout>
 
