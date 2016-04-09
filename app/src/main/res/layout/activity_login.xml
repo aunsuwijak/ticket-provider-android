@@ -106,9 +106,7 @@
                     android:text="@string/login"
                     android:id="@+id/login_btn"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="#FFF"
-                    android:background="@color/sunFlower"
-                    style="@style/Base.Widget.AppCompat.Button"
+                    style="@style/ButtonPrimary"
                     android:layout_marginTop="@dimen/button_top_margin" />
 
                 <LinearLayout
