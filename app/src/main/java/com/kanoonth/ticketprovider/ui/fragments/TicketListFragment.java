@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +27,7 @@ import butterknife.ButterKnife;
 public class TicketListFragment extends Fragment {
 
     @Bind(R.id.rv) RecyclerView rv;
+    @Bind(R.id.toolbar) Toolbar toolbar;
 
     private String url = "http://taweesoft.xyz/ticket-provider/ticket-images/";
     private String[] images = new String[]{
@@ -35,23 +38,6 @@ public class TicketListFragment extends Fragment {
             "stand_up_comedy.png",
             "khon.png"
     };
-    private String[] names = new String[] {
-            "S2O Songkarn Festival",
-            "Breezer Water War",
-            "Bangkok Motorshow",
-            "Loy Kra Thong 2016",
-            "Stand Up Comedy 11 #18",
-            "Khon"
-    };
-
-    private String[] desc = new String[] {
-            "13-15 April 2016",
-            "13-15 April 2016",
-            "20-25 September 2016",
-            "14 November 2016",
-            "23 May 2016",
-            "1 August 2016"
-    };
 
     private String[] names = new String[] {
             "S2O Songkarn Festival",
@@ -76,22 +62,11 @@ public class TicketListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ticket_list_layout,container,false);
         ButterKnife.bind(this, view);
-        List<TicketTemp> tickets = new ArrayList<>();
-        for(int i =0;i<images.length;i++)
-            tickets.add(new TicketTemp(images[i],names[i],desc[i]));
-        TicketListAdapter adapter = new TicketListAdapter(tickets,url);
-        rv.setAdapter(adapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
-        rv.setLayoutManager(layoutManager);
-        rv.setAdapter(adapter);
+        initComponents();
         return view;
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ticket_list_layout,container,false);
-        ButterKnife.bind(this, view);
+    public void initComponents() {
         List<TicketTemp> tickets = new ArrayList<>();
         for(int i =0;i<images.length;i++)
             tickets.add(new TicketTemp(images[i],names[i],desc[i]));
@@ -100,7 +75,15 @@ public class TicketListFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(adapter);
-        return view;
+
+        toolbar.setTitle(getString(R.string.my_tickets));
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("Clicked" , "Toolbar back");
+            }
+        });
     }
 
 }
