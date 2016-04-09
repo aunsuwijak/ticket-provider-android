@@ -12,8 +12,9 @@
     </style>
     
     <style name="EditTextStyle">
-        <item name="android:editTextStyle">@android:style/Widget.EditText</item>
-        <item name="editTextStyle">@android:style/Widget.EditText</item>
+        <item name="android:backgroundTint">#808080</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textColorHint">#BDBDBD</item>
     </style>
     
     <style name="ButtonPrimary" parent="@style/Base.Widget.AppCompat.Button">
