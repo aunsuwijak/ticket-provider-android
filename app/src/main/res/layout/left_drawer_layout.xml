@@ -54,11 +54,7 @@
                 android:text="New Text"
                 android:id="@+id/tv_email"
                 android:textSize="@dimen/left_menu_primary_font_size"
-<<<<<<< 2d5ce4d79aac064507eb2f2515df340cfa669f8e
                 android:textColor="@color/colorButtermilk" />
-=======
-                android:textColor="@color/ProfileDesc" />
->>>>>>> [#116318863] Added Toolbar in TicketListFragment
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>
