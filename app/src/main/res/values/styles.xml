@@ -2,24 +2,24 @@
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:background">#FFF</item>
         <item name="android:textColor">@color/colorNobelGrey</item>
-        <item name="android:textSize">@dimen/app_text_size</item>
+        <item name="android:textSize">@dimen/appTextSize</item>
         <item name="colorPrimary">@color/colorNobelGrey</item>
         <item name="colorPrimaryDark">@color/colorNobelGrey</item>
         <item name="colorAccent">@color/colorNobelGrey</item>
 
-        <item name="editTextStyle">@style/EditText</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
 
-        <item name="android:buttonStyle">@style/Button</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
     </style>
 
-    <style name="EditText" parent="Widget.AppCompat.EditText">
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
         <item name="android:textColor">@color/colorNobelGrey</item>
-        <item name="android:textSize">@dimen/app_edit_text_size</item>
+        <item name="android:textSize">@dimen/appEditTextSize</item>
         <item name="android:textCursorDrawable">@drawable/cursor</item>
         <item name="android:singleLine">true</item>
     </style>
 
-    <style name="Button" parent="Widget.AppCompat.Button">
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
         <item name="android:textColor">#FFF</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textAllCaps">false</item>
@@ -27,17 +27,17 @@
 
     <style name="TextViewHeader">
         <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textSize">@dimen/app_header_text_size</item>
+        <item name="android:textSize">@dimen/appHeaderTextSize</item>
     </style>
 
     <style name="TextViewLabel">
         <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:textSize">@dimen/app_label_text_size</item>
+        <item name="android:textSize">@dimen/appLabelTextSize</item>
     </style>
 
     <style name="ToolBarStyle">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
         <item name="android:background">@color/colorPrimary</item>
-        <item name="android:minHeight">?attr/actionBarSize</item>
-        <item name="android:textColor">#FFF</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
     </style>
 </resources>
