@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".ui.views.MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:text="Hello, World!"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextViewHeader"
+        android:text="Stand Up Comedy11 #18"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextViewLabel"
+        android:text="Zone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="STAND UP COMEDY 11 ในยามที่บ้านเมืองเกิดวิกฤต เศรษฐกิจมีผลกับดัชนีความสุขของผู้คน ชาติต้องการใครสักคนมาเยียวยาพ่อแม่พี่น้องประชาชนที่เคารพ ผู้ชายคนนี้ถูกโหวตให้เป็นนายกทุกโพลมาหลายต่อหลายสมัย แต่เขาไม่ยอมมารับตำแหน่งเสียที 2 ปีที่ผ่านมา เขาไม่ได้มีส่วนร่วมกับการบริหารอะไรเลย แต่เวลานี้ เขาจะกลับมาทำตามสัญญา ขอเวลาอีกไม่นาน เดี่ยว 11 อุดม แต้อาสาเดินเคียงข้างฝ่าวิกฤติความเครียดไปกับท่าน"/>
+</LinearLayout>

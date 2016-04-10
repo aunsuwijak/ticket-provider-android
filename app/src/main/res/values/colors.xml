@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#fdc80e</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="ProfileDesc">#ffeeb1</color>
-    <color name="textColor">#808080</color>
+    <color name="colorPrimary">#FDC80E</color>
+    <color name="colorPrimaryDark">#F4BF00</color>
+    <color name="colorNobelGrey">#9B9B9B</color>
 </resources>
