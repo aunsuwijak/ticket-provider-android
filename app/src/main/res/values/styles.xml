@@ -27,6 +27,12 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="AuthButton" parent="ButtonStyle">
+        <item name="android:layout_width">@dimen/authButtonWidth</item>
+        <item name="android:layout_height">@dimen/authButtonHeight</item>
+        <item name="android:textSize">@dimen/appTextSize</item>
+    </style>
+
     <style name="TextViewHeader">
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/appHeaderTextSize</item>

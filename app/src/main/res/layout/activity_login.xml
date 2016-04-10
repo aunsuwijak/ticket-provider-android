@@ -96,8 +96,7 @@
             </LinearLayout>
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/AuthButton"
                 android:text="@string/login"
                 android:id="@+id/loginButton"
                 android:layout_gravity="center_horizontal"
@@ -115,7 +114,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/forgot_password"
                     android:id="@+id/tvForgotPassword"
-                    android:layout_gravity="right" />
+                    android:layout_gravity="right"
+                    android:textSize="@dimen/authTextSize" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -123,7 +123,8 @@
                     android:text="@string/register"
                     android:id="@+id/tvRegister"
                     android:layout_gravity="right"
-                    android:layout_marginTop="@dimen/sign_text_each_top_margin" />
+                    android:layout_marginTop="@dimen/sign_text_each_top_margin"
+                    android:textSize="@dimen/authTextSize" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

@@ -26,4 +26,8 @@
     <dimen name="left_menu_icon_size">20dp</dimen>
     <dimen name="left_menu_primary_font_size">16sp</dimen>
     <dimen name="left_menu_each_vertial_margin">15dp</dimen>
+
+    <dimen name="authTextSize">14sp</dimen>
+    <dimen name="authButtonWidth">106dp</dimen>
+    <dimen name="authButtonHeight">36dp</dimen>
 </resources>
