@@ -19,9 +19,6 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by TAWEESOFT on 3/3/16 AD.
- */
 public class HttpManager {
 
     private static HttpManager instance = null;
