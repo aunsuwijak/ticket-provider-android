@@ -1,5 +1,6 @@
 package com.kanoonth.ticketprovider.ui.views;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import com.kanoonth.ticketprovider.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -24,5 +26,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.tvRegister)
+    public void navigateToSignup(TextView tvRegiser) {
+        Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+        startActivity(intent);
     }
 }

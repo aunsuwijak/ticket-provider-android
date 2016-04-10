@@ -14,13 +14,12 @@ import butterknife.OnClick;
 
 public class SignupActivity extends AppCompatActivity {
 
-    /*UI Components*/
-    @Bind(R.id.email_txt) EditText email_txt;
-    @Bind(R.id.name_txt) EditText name_txt;
-    @Bind(R.id.pass_txt) EditText pass_txt;
-    @Bind(R.id.confirm_pass_txt) EditText confirm_pass_txt;
-    @Bind(R.id.signup_btn) Button signup_btn;
-    @Bind(R.id.have_account_txt) TextView have_account_txt;
+    @Bind(R.id.emailEditText) EditText emailEditText;
+    @Bind(R.id.nameEditText) EditText nameEditText;
+    @Bind(R.id.passwordEditText) EditText passwordEditText;
+    @Bind(R.id.passwordConfirmationEditText) EditText passwordConfirmationEditText;
+    @Bind(R.id.signupButton) Button signupButton;
+    @Bind(R.id.tvHaveAccount) TextView tvHaveAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +28,8 @@ public class SignupActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.signup_btn)
-    public void signup() {
-        String email = email_txt.getText().toString().trim();
-        String name = name_txt.getText().toString().trim();
-        String pass = pass_txt.getText().toString().trim();
-        String confirm_pass = confirm_pass_txt.getText().toString().trim();
-        // TODO: 4/1/16 AD
-        // do signup
-    }
-
-    @OnClick(R.id.have_account_txt)
-    public void goLogin() {
+    @OnClick(R.id.tvHaveAccount)
+    public void navigateToLogin() {
         finish();
     }
 }
