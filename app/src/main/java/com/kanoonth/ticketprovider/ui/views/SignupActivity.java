@@ -1,6 +1,5 @@
 package com.kanoonth.ticketprovider.ui.views;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -13,24 +12,24 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
     @Bind(R.id.emailEditText) EditText emailEditText;
+    @Bind(R.id.nameEditText) EditText nameEditText;
     @Bind(R.id.passwordEditText) EditText passwordEditText;
-    @Bind(R.id.loginButton) Button loginButton;
-    @Bind(R.id.tvForgotPassword) TextView tvForgotPassword;
-    @Bind(R.id.tvRegister) TextView tvRegiser;
+    @Bind(R.id.passwordConfirmationEditText) EditText passwordConfirmationEditText;
+    @Bind(R.id.signupButton) Button signupButton;
+    @Bind(R.id.tvHaveAccount) TextView tvHaveAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_signup);
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.tvRegister)
-    public void navigateToSignup(TextView tvRegiser) {
-        Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-        startActivity(intent);
+    @OnClick(R.id.tvHaveAccount)
+    public void navigateToLogin() {
+        finish();
     }
 }

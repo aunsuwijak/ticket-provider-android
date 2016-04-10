@@ -5,4 +5,7 @@
     <string name="forgot_password">Forgot your password ?</string>
     <string name="hint_email">Email address</string>
     <string name="hint_password">Password</string>
+    <string name="hint_confirmation_password">Password Confirmation</string>
+    <string name="hint_name">Name</string>
+    <string name="have_account">Already have an account ?</string>
 </resources>
