@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.kanoonth.ticketprovider.R;
 import com.kanoonth.ticketprovider.models.SideBarItem;
 import com.kanoonth.ticketprovider.ui.adapters.SideBarAdapter;
+import com.kanoonth.ticketprovider.ui.fragments.QrCodeFragment;
 import com.kanoonth.ticketprovider.ui.fragments.TicketListFragment;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -52,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void initComponents() {
         SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets) , R.drawable.shopping);
+        SideBarItem qrCode = new SideBarItem(getString(R.string.qr_code) , R.drawable.qr_code);
         final List<SideBarItem> items = new ArrayList<>();
+        items.add(qrCode);
         items.add(tickets);
         items.get(0).setActive(true);
         final SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
@@ -72,8 +75,12 @@ public class MainActivity extends AppCompatActivity {
                 menuDrawer.closeMenu(true);
                 activeItem = position;
                 switch (position){
+                    case 0 :
+                        replaceFragment(new QrCodeFragment());
+                        break;
                     case 1 :
                         replaceFragment(new TicketListFragment());
+                        break;
                 }
             }
         });
