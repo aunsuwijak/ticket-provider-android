@@ -7,7 +7,7 @@ import io.realm.RealmObject;
 /**
  * Created by suwijakchaipipat on 3/22/2016 AD.
  */
-public class AccessToken extends RealmObject {
+public class AccessToken {
 
     @SerializedName("access_token") private String accessToken;
     @SerializedName("token_type") private  String tokenType;

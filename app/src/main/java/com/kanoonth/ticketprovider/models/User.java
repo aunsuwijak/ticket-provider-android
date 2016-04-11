@@ -12,6 +12,7 @@ public class User {
     @SerializedName("id") private String id;
     @SerializedName("email") private String email;
     @SerializedName("password") private String password;
+    @SerializedName("password_confirmation") private String passwordConfimation;
     @SerializedName("name") private String name;
     @SerializedName("birthdate") private Date birthdate;
 
@@ -38,6 +39,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getPasswordConfimation() { return passwordConfimation; }
+
+    public void setPasswordConfimation(String passwordConfimation) { this.passwordConfimation = passwordConfimation; }
 
     public String getName() {
         return name;
