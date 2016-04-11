@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.kanoonth.ticketprovider.R;
-import com.kanoonth.ticketprovider.models.TicketTemp;
+import com.kanoonth.ticketprovider.models.Ticket;
 
 import java.util.List;
 
@@ -22,8 +22,7 @@ import butterknife.ButterKnife;
  */
 public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.ViewHolder> {
 
-    private List<TicketTemp> tickets;
-    private String url;
+    private List<Ticket> tickets;
     private Context context;
 
     class ViewHolder extends RecyclerView.ViewHolder{
@@ -37,9 +36,8 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
         }
     }
 
-    public TicketListAdapter(List<TicketTemp> tickets, String url) {
+    public TicketListAdapter(List<Ticket> tickets) {
         this.tickets = tickets;
-        this.url = url;
     }
 
     @Override
@@ -51,11 +49,11 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tv_ticket_name.setText(tickets.get(position).getName());
-        holder.tv_ticket_desc.setText(tickets.get(position).getDesc());
+        holder.tv_ticket_name.setText(tickets.get(position).getTicketTypeName());
+        holder.tv_ticket_desc.setText(tickets.get(position).getColumn());
         Glide
                 .with(context)
-                .load(url+tickets.get(position).getImageName())
+                .load(tickets.get(position).getTicketTypeImageUrl())
                 .centerCrop()
                 .crossFade()
                 .into(holder.img_ticket);

@@ -92,6 +92,8 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString(Constants.TOKEN_TYPE, accessToken.getTokenType());
                     editor.apply();
 
+                    Intent intent = new Intent(LoginActivity.this , MainActivity.class);
+                    startActivity(intent);
                     dialog.dismiss();
                 } else {
                     dialog.dismiss();

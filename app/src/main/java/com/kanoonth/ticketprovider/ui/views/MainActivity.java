@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.sidebar) ListView sidebar;
     @Bind(R.id.img_profile)  ImageView img_profile;
-    @Bind(R.id.tv_name) TextView tv_name;
-    @Bind(R.id.tv_email) TextView tv_email;
+    @Bind(R.id.tv_name) TextView tvName;
+    @Bind(R.id.tv_email) TextView tvEmail;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initComponents() {
-        SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets) , R.drawable.shopping);
+        SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets) , R.drawable.my_ticket);
         SideBarItem qrCode = new SideBarItem(getString(R.string.qr_code) , R.drawable.qr_code);
         final List<SideBarItem> items = new ArrayList<>();
         items.add(qrCode);
@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         final SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
         sidebar.setAdapter(adapter);
 
-        tv_name.setText("Ryan");
-        tv_email.setText("ryan@hollywood.com");
+        tvName.setText("Ryan");
+        tvEmail.setText("ryan@hollywood.com");
 
         sidebar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

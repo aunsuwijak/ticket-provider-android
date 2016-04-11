@@ -1,5 +1,7 @@
 package com.kanoonth.ticketprovider.ui.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,15 +13,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.kanoonth.ticketprovider.Constants;
 import com.kanoonth.ticketprovider.R;
-import com.kanoonth.ticketprovider.models.TicketTemp;
+import com.kanoonth.ticketprovider.managers.APIService;
+import com.kanoonth.ticketprovider.managers.HttpManager;
+import com.kanoonth.ticketprovider.models.AccessToken;
+import com.kanoonth.ticketprovider.models.Element;
+import com.kanoonth.ticketprovider.models.Ticket;
 import com.kanoonth.ticketprovider.ui.adapters.TicketListAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by TAWEESOFT on 4/7/16 AD.
@@ -28,34 +37,6 @@ public class TicketListFragment extends Fragment {
 
     @Bind(R.id.rv) RecyclerView rv;
     @Bind(R.id.toolbar) Toolbar toolbar;
-
-    private String url = "http://taweesoft.xyz/ticket-provider/ticket-images/";
-    private String[] images = new String[]{
-            "s2o.png",
-            "breezer.png",
-            "motorshow.png",
-            "loy_kra_thong.png",
-            "stand_up_comedy.png",
-            "khon.png"
-    };
-
-    private String[] names = new String[] {
-            "S2O Songkarn Festival",
-            "Breezer Water War",
-            "Bangkok Motorshow",
-            "Loy Kra Thong 2016",
-            "Stand Up Comedy 11 #18",
-            "Khon"
-    };
-
-    private String[] desc = new String[] {
-            "13-15 April 2016",
-            "13-15 April 2016",
-            "20-25 September 2016",
-            "14 November 2016",
-            "23 May 2016",
-            "1 August 2016"
-    };
 
     @Nullable
     @Override
@@ -67,15 +48,6 @@ public class TicketListFragment extends Fragment {
     }
 
     public void initComponents() {
-        List<TicketTemp> tickets = new ArrayList<>();
-        for(int i =0;i<images.length;i++)
-            tickets.add(new TicketTemp(images[i],names[i],desc[i]));
-        TicketListAdapter adapter = new TicketListAdapter(tickets,url);
-        rv.setAdapter(adapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
-        rv.setLayoutManager(layoutManager);
-        rv.setAdapter(adapter);
-
         toolbar.setTitle(getString(R.string.my_tickets));
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -84,5 +56,36 @@ public class TicketListFragment extends Fragment {
                 Log.e("Clicked" , "Toolbar back");
             }
         });
+
+        SharedPreferences preferences = getActivity().getSharedPreferences(Constants.APP_NAME, Context.MODE_PRIVATE);
+        AccessToken accessToken = new AccessToken();
+        accessToken.setAccessToken(preferences.getString(Constants.ACCESS_TOKEN, null));
+        accessToken.setTokenType(preferences.getString(Constants.TOKEN_TYPE, null));
+
+        Call<Element> retriveTicketCall = HttpManager
+                .getInstance().getAPIService(APIService.class, accessToken).retrieveTickets();
+        retriveTicketCall.enqueue(new Callback<Element>() {
+            @Override
+            public void onResponse(Call<Element> call, Response<Element> response) {
+                if(response.isSuccessful()){
+                    List<Ticket> tickets = response.body().getTickets();
+                    TicketListAdapter adapter = new TicketListAdapter(tickets);
+                    rv.setAdapter(adapter);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TicketListFragment.this.getContext());
+                    rv.setLayoutManager(layoutManager);
+                    rv.setAdapter(adapter);
+                }else{
+                    // TODO: handle errors
+                    Log.e("error" , response.raw().toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Element> call, Throwable t) {
+
+            }
+        });
+
     }
 }
