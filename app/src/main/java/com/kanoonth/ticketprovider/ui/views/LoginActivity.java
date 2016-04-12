@@ -1,6 +1,7 @@
 package com.kanoonth.ticketprovider.ui.views;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +30,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -37,6 +39,11 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.loginButton) Button loginButton;
     @Bind(R.id.tvForgotPassword) TextView tvForgotPassword;
     @Bind(R.id.tvRegister) TextView tvRegiser;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

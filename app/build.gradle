@@ -57,4 +57,5 @@ dependencies {
     }
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.google.zxing:core:3.0.0'
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
 }
