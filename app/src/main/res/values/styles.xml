@@ -34,6 +34,7 @@
     </style>
 
     <style name="TextViewHeader">
+        <item name="fontPath">fonts/ThaiSansNeue-SemiBold.ttf</item>
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textSize">@dimen/appHeaderTextSize</item>
     </style>

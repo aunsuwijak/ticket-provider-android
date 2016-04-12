@@ -1,10 +1,10 @@
 <resources>
 
     <!-- Default app text size -->
-    <dimen name="appTextSize">11sp</dimen>
-    <dimen name="appHeaderTextSize">20sp</dimen>
-    <dimen name="appLabelTextSize">11sp</dimen>
-    <dimen name="appEditTextSize">14sp</dimen>
+    <dimen name="appTextSize">20sp</dimen>
+    <dimen name="appHeaderTextSize">28sp</dimen>
+    <dimen name="appLabelTextSize">20sp</dimen>
+    <dimen name="appEditTextSize">22sp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
@@ -27,7 +27,7 @@
     <dimen name="left_menu_primary_font_size">16sp</dimen>
     <dimen name="left_menu_each_vertial_margin">15dp</dimen>
 
-    <dimen name="authTextSize">14sp</dimen>
+    <dimen name="authTextSize">22sp</dimen>
     <dimen name="authButtonWidth">106dp</dimen>
     <dimen name="authButtonHeight">36dp</dimen>
 </resources>

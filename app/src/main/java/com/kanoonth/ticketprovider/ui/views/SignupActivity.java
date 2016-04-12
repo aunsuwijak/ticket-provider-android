@@ -1,5 +1,7 @@
 package com.kanoonth.ticketprovider.ui.views;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.kanoonth.ticketprovider.Constants;
 import com.kanoonth.ticketprovider.R;
 import com.kanoonth.ticketprovider.managers.APIService;
@@ -30,6 +31,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -41,6 +43,11 @@ public class SignupActivity extends AppCompatActivity {
     @Bind(R.id.tvHaveAccount) TextView tvHaveAccount;
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
@@ -49,16 +56,19 @@ public class SignupActivity extends AppCompatActivity {
 
     @OnClick(R.id.signupButton)
     public void signup() {
+        final ProgressDialog dialog = ProgressDialog.show(SignupActivity.this, null, "Please wait! ...", true);
+        dialog.setCancelable(true);
+
         String email = emailEditText.getText().toString().trim();
         String name = nameEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
-        String passwordConfimation = passwordConfirmationEditText.getText().toString().trim();
+        String passwordConfirmation = passwordConfirmationEditText.getText().toString().trim();
 
         User user = new User();
         user.setEmail(email);
         user.setName(name);
         user.setPassword(password);
-        user.setPasswordConfimation(passwordConfimation);
+        user.setPasswordConfimation(passwordConfirmation);
 
         Element element = new Element();
         element.setUser(user);
@@ -70,6 +80,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Element> call, Response<Element> response) {
                 if (response.isSuccessful()) {
+
                     User user = response.body().getUser();
 
                     Map<String, String> map = new HashMap<>();
@@ -96,7 +107,11 @@ public class SignupActivity extends AppCompatActivity {
                                 editor.putString(Constants.ACCESS_TOKEN, accessToken.getAccessToken());
                                 editor.putString(Constants.TOKEN_TYPE, accessToken.getTokenType());
                                 editor.apply();
+
+                                dialog.dismiss();
                             } else {
+                                dialog.dismiss();
+
                                 // TODO: Handle error message
                                 Log.d("error", response.raw().toString());
                             }
