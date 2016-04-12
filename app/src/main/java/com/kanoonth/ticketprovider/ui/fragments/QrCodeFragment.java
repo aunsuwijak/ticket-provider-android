@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kanoonth.ticketprovider.R;
+import com.kanoonth.ticketprovider.managers.Observable;
+
+import java.util.Observer;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -17,6 +20,8 @@ import butterknife.ButterKnife;
  * Created by TAWEESOFT on 4/11/16 AD.
  */
 public class QrCodeFragment extends Fragment {
+
+    private Observable observable = new Observable();
 
     @Bind(R.id.toolbar) Toolbar toolbar;
 
@@ -34,5 +39,16 @@ public class QrCodeFragment extends Fragment {
     public void initComponents() {
         toolbar.setTitle("QR Code");
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                observable.setChanged();
+                observable.notifyObservers();
+            }
+        });
+    }
+
+    public void addObserver(Observer observer) {
+        this.observable.addObserver(observer);
     }
 }

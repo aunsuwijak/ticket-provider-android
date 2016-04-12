@@ -17,12 +17,14 @@ import com.kanoonth.ticketprovider.Constants;
 import com.kanoonth.ticketprovider.R;
 import com.kanoonth.ticketprovider.managers.APIService;
 import com.kanoonth.ticketprovider.managers.HttpManager;
+import com.kanoonth.ticketprovider.managers.Observable;
 import com.kanoonth.ticketprovider.models.AccessToken;
 import com.kanoonth.ticketprovider.models.Element;
 import com.kanoonth.ticketprovider.models.Ticket;
 import com.kanoonth.ticketprovider.ui.adapters.TicketListAdapter;
 
 import java.util.List;
+import java.util.Observer;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,6 +36,8 @@ import retrofit2.Response;
  * Created by TAWEESOFT on 4/7/16 AD.
  */
 public class TicketListFragment extends Fragment {
+
+    private Observable observable = new Observable();
 
     @Bind(R.id.rv) RecyclerView rv;
     @Bind(R.id.toolbar) Toolbar toolbar;
@@ -53,7 +57,8 @@ public class TicketListFragment extends Fragment {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("Clicked" , "Toolbar back");
+                observable.setChanged();
+                observable.notifyObservers();
             }
         });
 
@@ -86,6 +91,9 @@ public class TicketListFragment extends Fragment {
 
             }
         });
+    }
 
+    public void addObserver(Observer observer) {
+        this.observable.addObserver(observer);
     }
 }

@@ -29,6 +29,8 @@ import net.simonvt.menudrawer.MenuDrawer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,10 +38,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Observer {
 
     private MenuDrawer menuDrawer;
-    private int activeItem = 0;
+    private int activeItem = 1;
+    private QrCodeFragment qrCodeFragment;
+    private TicketListFragment ticketListFragment;
 
     @Bind(R.id.lvSidebar) ListView lvSideBar;
     @Bind(R.id.imgProfile)  ImageView imgProfile;
@@ -63,13 +67,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initComponents() {
-        replaceFragment(new TicketListFragment());
+        qrCodeFragment = new QrCodeFragment();
+        ticketListFragment = new TicketListFragment();
+        qrCodeFragment.addObserver(this);
+        ticketListFragment.addObserver(this);
+        replaceFragment(ticketListFragment);
         SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets) , R.drawable.my_ticket);
-        SideBarItem qrCode = new SideBarItem(getString(R.string.qr_code) , R.drawable.qr_code);
+        final SideBarItem qrCode = new SideBarItem(getString(R.string.qr_code) , R.drawable.qr_code);
         final List<SideBarItem> items = new ArrayList<>();
         items.add(qrCode);
         items.add(tickets);
-        items.get(0).setActive(true);
+        items.get(1).setActive(true);
         final SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
         lvSideBar.setAdapter(adapter);
         lvSideBar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -84,10 +92,10 @@ public class MainActivity extends AppCompatActivity {
                 activeItem = position;
                 switch (position){
                     case 0 :
-                        replaceFragment(new QrCodeFragment());
+                        replaceFragment(qrCodeFragment);
                         break;
                     case 1 :
-                        replaceFragment(new TicketListFragment());
+                        replaceFragment(ticketListFragment);
                         break;
                 }
             }
@@ -133,5 +141,10 @@ public class MainActivity extends AppCompatActivity {
         accessToken.setAccessToken(preferences.getString(Constants.ACCESS_TOKEN, null));
         accessToken.setTokenType(preferences.getString(Constants.TOKEN_TYPE, null));
         return accessToken;
+    }
+
+    @Override
+    public void update(Observable observable, Object data) {
+        menuDrawer.toggleMenu(true);
     }
 }

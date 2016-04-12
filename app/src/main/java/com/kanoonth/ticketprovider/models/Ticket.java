@@ -16,6 +16,8 @@ public class Ticket extends RealmObject {
     @SerializedName("column") String column;
     @SerializedName("price") String price;
     @SerializedName("usage_quantity") String usageQuantity;
+    @SerializedName("activity_name") String activityName;
+    @SerializedName("activity_date") String activityDate;
 
     public String getId() {
         return id;
@@ -63,6 +65,22 @@ public class Ticket extends RealmObject {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getActivityName() {
+        return activityName;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
+    }
+
+    public String getActivityDate() {
+        return activityDate;
+    }
+
+    public void setActivityDate(String activityDate) {
+        this.activityDate = activityDate;
     }
 
     public String getUsageQuantity() {
