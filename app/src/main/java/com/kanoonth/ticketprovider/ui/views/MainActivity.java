@@ -41,7 +41,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity implements Observer {
 
     private MenuDrawer menuDrawer;
-    private int activeItem = 1;
+    private int activeItem = 0;
     private QrCodeFragment qrCodeFragment;
     private TicketListFragment ticketListFragment;
 

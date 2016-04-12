@@ -38,7 +38,7 @@ public class QrCodeFragment extends Fragment {
 
     public void initComponents() {
         toolbar.setTitle("QR Code");
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+        toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

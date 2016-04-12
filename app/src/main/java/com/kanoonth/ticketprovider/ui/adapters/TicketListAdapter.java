@@ -18,6 +18,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -76,10 +77,8 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
     }
 
     private String getDateStr(String rawDate) throws ParseException {
-        int tIndex = rawDate.indexOf('T');
-        String temp = rawDate.substring(0,tIndex);
-        DateFormat format = new SimpleDateFormat("yyyy-MM-DD");
-        Date date = format.parse(temp);
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
+        Date date = format.parse(rawDate);
         int day = date.getDate();
         String month = Utility.getMonthStr(date.getMonth());
         int year = date.getYear() + 1900;
