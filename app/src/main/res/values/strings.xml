@@ -11,4 +11,5 @@
     <string name="my_tickets">My Tickets</string>
     <string name="logout">Logout</string>
     <string name="qr_code">QR Code</string>
+    <string name="please_wait">Please wait! ...</string>
 </resources>

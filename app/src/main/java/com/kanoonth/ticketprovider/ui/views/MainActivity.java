@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements Observer {
     private QrCodeFragment qrCodeFragment;
     private TicketListFragment ticketListFragment;
 
+    private static final int QR_CODE_FRAGMENT = 0;
+    private static final int TICKET_LIST_FRAGMENT = 1;
+
     @Bind(R.id.lvSidebar) ListView lvSideBar;
     @Bind(R.id.imgProfile)  ImageView imgProfile;
     @Bind(R.id.tvName) TextView tvName;
@@ -67,23 +70,22 @@ public class MainActivity extends AppCompatActivity implements Observer {
     }
 
     public void initComponents() {
-        //Create fragments
         qrCodeFragment = new QrCodeFragment();
         ticketListFragment = new TicketListFragment();
         qrCodeFragment.addObserver(this);
         ticketListFragment.addObserver(this);
         replaceFragment(qrCodeFragment);
 
-        //Create sidebar items
-        SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets) , R.drawable.my_ticket);
-        final SideBarItem qrCode = new SideBarItem(getString(R.string.qr_code) , R.drawable.qr_code);
+        SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets), R.drawable.my_ticket);
+        final SideBarItem qrCode = new SideBarItem(getString(R.string.qr_code), R.drawable.qr_code);
         final List<SideBarItem> items = new ArrayList<>();
         items.add(qrCode);
         items.add(tickets);
-        items.get(0).setActive(true); //qr code
+        items.get(0).setActive(true);
         final SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
         lvSideBar.setAdapter(adapter);
         lvSideBar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SideBarItem active = items.get(activeItem);
@@ -94,10 +96,10 @@ public class MainActivity extends AppCompatActivity implements Observer {
                 menuDrawer.closeMenu(true);
                 activeItem = position;
                 switch (position){
-                    case 0 :
+                    case QR_CODE_FRAGMENT :
                         replaceFragment(qrCodeFragment);
                         break;
-                    case 1 :
+                    case TICKET_LIST_FRAGMENT :
                         replaceFragment(ticketListFragment);
                         break;
                 }

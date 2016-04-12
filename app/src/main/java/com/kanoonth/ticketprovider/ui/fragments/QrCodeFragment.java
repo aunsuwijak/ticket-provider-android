@@ -28,7 +28,7 @@ public class QrCodeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.qr_code_layout , container , false);
+        View v = inflater.inflate(R.layout.qr_code_layout, container, false);
         ButterKnife.bind(this,v);
         initComponents();
         // TODO: 4/11/16 AD
