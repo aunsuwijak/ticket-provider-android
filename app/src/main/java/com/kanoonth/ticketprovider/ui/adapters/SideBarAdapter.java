@@ -42,20 +42,20 @@ public class SideBarAdapter extends ArrayAdapter<SideBarItem> {
 
         SideBarItem item = getItem(position);
         holder.imgIcon.setImageResource(item.getImg());
-        holder.text.setText(item.getText());
+        holder.title.setText(item.getText());
 
         if (item.isActive()) {
-            holder.text.setTextColor(Color.WHITE);
+            holder.title.setTextColor(Color.WHITE);
             holder.layoutContainer.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
         } else {
-            holder.text.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+            holder.title.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
             holder.layoutContainer.setBackgroundColor(0);
         }
         return convertView;
     }
 
     class ViewHolder {
-        @Bind(R.id.text) public TextView text;
+        @Bind(R.id.title) public TextView title;
         @Bind(R.id.imgIcon) public ImageView imgIcon;
         @Bind(R.id.layoutContainer) public LinearLayout layoutContainer;
 

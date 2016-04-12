@@ -27,23 +27,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
                 android:id="@+id/tvTicketName"
                 android:layout_below="@+id/tvTicketDesc"
                 android:layout_alignLeft="@+id/tvTicketDesc"
                 android:layout_alignStart="@+id/tvTicketDesc"
-                android:textSize="@dimen/ticket_header_font_size"
+                android:textSize="@dimen/appHeaderTextSize"
                 android:textColor="#FFF" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Text"
                 android:id="@+id/tvTicketDesc"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/sign_text_each_top_margin"
-                android:textSize="@dimen/ticket_des_font_size"
+                android:textSize="@dimen/appTextSize"
                 android:textColor="#FFF" />
         </LinearLayout>
     </RelativeLayout>

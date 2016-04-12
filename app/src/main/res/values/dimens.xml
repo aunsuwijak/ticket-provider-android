@@ -20,11 +20,8 @@
     <dimen name="sign_text_each_top_margin">3dp</dimen>
     <dimen name="image_icon_size">14dp</dimen>
     <dimen name="left_menu_icon_margin">17dp</dimen>
-    <dimen name="ticket_header_font_size">20sp</dimen>
-    <dimen name="ticket_des_font_size">14sp</dimen>
     <dimen name="ticket_texts_margin">20dp</dimen>
     <dimen name="left_menu_icon_size">20dp</dimen>
-    <dimen name="left_menu_primary_font_size">16sp</dimen>
     <dimen name="left_menu_each_vertial_margin">15dp</dimen>
 
     <dimen name="authTextSize">22sp</dimen>
