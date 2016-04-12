@@ -10,13 +10,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.kanoonth.ticketprovider.R;
-import com.kanoonth.ticketprovider.managers.Utility;
 import com.kanoonth.ticketprovider.models.Ticket;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -55,14 +52,9 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String date = "";
-        try {
-            date = getDateStr(tickets.get(position).getActivityDate());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        DateFormat format = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
         holder.tvTicketName.setText(tickets.get(position).getActivityName());
-        holder.tvTicketDesc.setText(date);
+        holder.tvTicketDesc.setText(format.format(tickets.get(position).getActivityDate()));
         Glide
                 .with(context)
                 .load(tickets.get(position).getTicketTypeImageUrl())
@@ -74,14 +66,5 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
     @Override
     public int getItemCount() {
         return tickets.size();
-    }
-
-    private String getDateStr(String rawDate) throws ParseException {
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US);
-        Date date = format.parse(rawDate);
-        int day = date.getDate();
-        String month = Utility.getMonthStr(date.getMonth());
-        int year = date.getYear() + 1900;
-        return String.format("%d %s %d", day , month , year);
     }
 }

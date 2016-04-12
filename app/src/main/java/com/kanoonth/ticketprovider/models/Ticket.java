@@ -2,6 +2,8 @@ package com.kanoonth.ticketprovider.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 
 /**
@@ -17,7 +19,7 @@ public class Ticket extends RealmObject {
     @SerializedName("price") String price;
     @SerializedName("usage_quantity") String usageQuantity;
     @SerializedName("activity_name") String activityName;
-    @SerializedName("activity_date") String activityDate;
+    @SerializedName("activity_date") Date activityDate;
 
     public String getId() {
         return id;
@@ -75,11 +77,11 @@ public class Ticket extends RealmObject {
         this.activityName = activityName;
     }
 
-    public String getActivityDate() {
+    public Date getActivityDate() {
         return activityDate;
     }
 
-    public void setActivityDate(String activityDate) {
+    public void setActivityDate(Date activityDate) {
         this.activityDate = activityDate;
     }
 
