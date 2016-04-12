@@ -41,23 +41,23 @@ public class SideBarAdapter extends ArrayAdapter<SideBarItem> {
         }
 
         SideBarItem item = getItem(position);
-        holder.icon_img.setImageResource(item.getImg());
+        holder.imgIcon.setImageResource(item.getImg());
         holder.text.setText(item.getText());
 
         if (item.isActive()) {
             holder.text.setTextColor(Color.WHITE);
-            holder.linear_container.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+            holder.layoutContainer.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
         } else {
             holder.text.setTextColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
-            holder.linear_container.setBackgroundColor(0);
+            holder.layoutContainer.setBackgroundColor(0);
         }
         return convertView;
     }
 
     class ViewHolder {
         @Bind(R.id.text) public TextView text;
-        @Bind(R.id.icon_img) public ImageView icon_img;
-        @Bind(R.id.linear_container) public LinearLayout linear_container;
+        @Bind(R.id.imgIcon) public ImageView imgIcon;
+        @Bind(R.id.layoutContainer) public LinearLayout layoutContainer;
 
         public ViewHolder(View v) {
             ButterKnife.bind(this,v);

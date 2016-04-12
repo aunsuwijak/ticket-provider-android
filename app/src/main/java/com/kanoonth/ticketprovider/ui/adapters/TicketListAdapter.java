@@ -26,9 +26,9 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
     private Context context;
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        @Bind(R.id.img_ticket) public ImageView img_ticket;
-        @Bind(R.id.tv_ticket_name) public TextView tv_ticket_name;
-        @Bind(R.id.tv_ticket_desc) public TextView tv_ticket_desc;
+        @Bind(R.id.imgTicket) public ImageView imgTicket;
+        @Bind(R.id.tvTicketName) public TextView tvTicketName;
+        @Bind(R.id.tvTicketDesc) public TextView tvTicketDesc;
 
         public ViewHolder (View view){
             super(view);
@@ -49,14 +49,14 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tv_ticket_name.setText(tickets.get(position).getTicketTypeName());
-        holder.tv_ticket_desc.setText(tickets.get(position).getColumn());
+        holder.tvTicketName.setText(tickets.get(position).getTicketTypeName());
+        holder.tvTicketDesc.setText(tickets.get(position).getColumn());
         Glide
                 .with(context)
                 .load(tickets.get(position).getTicketTypeImageUrl())
                 .centerCrop()
                 .crossFade()
-                .into(holder.img_ticket);
+                .into(holder.imgTicket);
     }
 
     @Override

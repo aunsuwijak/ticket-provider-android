@@ -12,7 +12,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:id="@+id/img_ticket"
+            android:id="@+id/imgTicket"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
@@ -28,10 +28,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tv_ticket_name"
-                android:layout_below="@+id/tv_ticket_desc"
-                android:layout_alignLeft="@+id/tv_ticket_desc"
-                android:layout_alignStart="@+id/tv_ticket_desc"
+                android:id="@+id/tvTicketName"
+                android:layout_below="@+id/tvTicketDesc"
+                android:layout_alignLeft="@+id/tvTicketDesc"
+                android:layout_alignStart="@+id/tvTicketDesc"
                 android:textSize="@dimen/ticket_header_font_size"
                 android:textColor="#FFF" />
 
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tv_ticket_desc"
+                android:id="@+id/tvTicketDesc"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/sign_text_each_top_margin"

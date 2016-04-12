@@ -7,7 +7,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sidebar"
+        android:id="@+id/lvSidebar"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/relativeLayout"
         android:dividerHeight="0dp"
@@ -22,7 +22,7 @@
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:id="@+id/img_profile"
+            android:id="@+id/imgProfile"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -37,15 +37,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/img_profile"
-            android:layout_toEndOf="@+id/img_profile"
+            android:layout_toRightOf="@+id/imgProfile"
+            android:layout_toEndOf="@+id/imgProfile"
             android:layout_marginRight="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tv_name"
+                android:id="@+id/tvName"
                 android:textSize="@dimen/left_menu_primary_font_size"
                 android:textColor="@color/colorPrimary" />
 
@@ -53,9 +53,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Text"
-                android:id="@+id/tv_email"
+                android:id="@+id/tvEmail"
                 android:textSize="@dimen/left_menu_primary_font_size"
-                android:textColor="@color/colorButtermilk" />
+                android:textColor="@color/colorButtermilk"
+                android:singleLine="true" />
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

@@ -11,12 +11,12 @@
         android:gravity="center_vertical"
         android:paddingTop="@dimen/left_menu_each_vertial_margin"
         android:paddingBottom="@dimen/left_menu_each_vertial_margin"
-        android:id="@+id/linear_container">
+        android:id="@+id/layoutContainer">
 
         <ImageView
             android:layout_width="@dimen/left_menu_icon_size"
             android:layout_height="@dimen/left_menu_icon_size"
-            android:id="@+id/icon_img"
+            android:id="@+id/imgIcon"
             android:layout_marginRight="@dimen/left_menu_icon_margin"
             android:src="@drawable/menu"
             android:layout_marginLeft="@dimen/left_menu_icon_margin" />
