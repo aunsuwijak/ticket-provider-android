@@ -67,17 +67,20 @@ public class MainActivity extends AppCompatActivity implements Observer {
     }
 
     public void initComponents() {
+        //Create fragments
         qrCodeFragment = new QrCodeFragment();
         ticketListFragment = new TicketListFragment();
         qrCodeFragment.addObserver(this);
         ticketListFragment.addObserver(this);
-        replaceFragment(ticketListFragment);
+        replaceFragment(qrCodeFragment);
+
+        //Create sidebar items
         SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets) , R.drawable.my_ticket);
         final SideBarItem qrCode = new SideBarItem(getString(R.string.qr_code) , R.drawable.qr_code);
         final List<SideBarItem> items = new ArrayList<>();
         items.add(qrCode);
         items.add(tickets);
-        items.get(1).setActive(true);
+        items.get(0).setActive(true); //qr code
         final SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
         lvSideBar.setAdapter(adapter);
         lvSideBar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
