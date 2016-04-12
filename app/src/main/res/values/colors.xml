@@ -3,4 +3,6 @@
     <color name="colorPrimary">#FDC80E</color>
     <color name="colorPrimaryDark">#F4BF00</color>
     <color name="colorNobelGrey">#9B9B9B</color>
+    <color name="colorButtermilk">#FFF1B5</color>
+    <color name="colorCarade">#253137</color>
 </resources>

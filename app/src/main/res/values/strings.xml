@@ -8,4 +8,8 @@
     <string name="hint_confirmation_password">Password Confirmation</string>
     <string name="hint_name">Name</string>
     <string name="have_account">Already have an account ?</string>
+    <string name="my_tickets">My Tickets</string>
+    <string name="logout">Logout</string>
+    <string name="qr_code">QR Code</string>
+    <string name="please_wait">Please wait! ...</string>
 </resources>

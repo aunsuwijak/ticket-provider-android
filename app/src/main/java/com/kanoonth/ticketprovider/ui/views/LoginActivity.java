@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.loginButton)
     public void login() {
-        final ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, null, "Please wait! ...", true);
+        final ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, null, getResources().getString(R.string.please_wait), true);
         dialog.setCancelable(true);
 
         String email = emailEditText.getText().toString().trim();
@@ -92,6 +92,8 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString(Constants.TOKEN_TYPE, accessToken.getTokenType());
                     editor.apply();
 
+                    Intent intent = new Intent(LoginActivity.this , MainActivity.class);
+                    startActivity(intent);
                     dialog.dismiss();
                 } else {
                     dialog.dismiss();

@@ -33,7 +33,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity{
 
     @Bind(R.id.emailEditText) EditText emailEditText;
     @Bind(R.id.nameEditText) EditText nameEditText;
@@ -139,4 +139,5 @@ public class SignupActivity extends AppCompatActivity {
     public void navigateToLogin() {
         finish();
     }
+
 }
