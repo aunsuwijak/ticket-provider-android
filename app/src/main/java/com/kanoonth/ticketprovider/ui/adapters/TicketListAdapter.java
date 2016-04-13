@@ -1,16 +1,19 @@
 package com.kanoonth.ticketprovider.ui.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.kanoonth.ticketprovider.R;
 import com.kanoonth.ticketprovider.models.Ticket;
+import com.kanoonth.ticketprovider.ui.views.TicketActivity;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -32,6 +35,7 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
         @Bind(R.id.imgTicket) public ImageView imgTicket;
         @Bind(R.id.tvTicketName) public TextView tvTicketName;
         @Bind(R.id.tvTicketDesc) public TextView tvTicketDesc;
+        @Bind(R.id.container) public RelativeLayout container;
 
         public ViewHolder (View view){
             super(view);
@@ -47,17 +51,27 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         this.context = parent.getContext();
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.ticket_layout, null, false);
-        return new ViewHolder(v);
+        final ViewHolder holder = new ViewHolder(v);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,TicketActivity.class);
+                intent.putExtra("ticket" , tickets.get(holder.getPosition()));
+                context.startActivity(intent);
+            }
+        });
+        return holder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         DateFormat format = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
-        holder.tvTicketName.setText(tickets.get(position).getActivityName());
-        holder.tvTicketDesc.setText(format.format(tickets.get(position).getActivityDate()));
+        final Ticket ticket = tickets.get(position);
+        holder.tvTicketName.setText(ticket.getActivityName());
+        holder.tvTicketDesc.setText(format.format(ticket.getActivityDate()));
         Glide
                 .with(context)
-                .load(tickets.get(position).getTicketTypeImageUrl())
+                .load(ticket.getTicketTypeImageUrl())
                 .centerCrop()
                 .crossFade()
                 .into(holder.imgTicket);
