@@ -5,9 +5,7 @@
         <item name="colorPrimary">@color/colorNobelGrey</item>
         <item name="colorPrimaryDark">@color/colorNobelGrey</item>
         <item name="colorAccent">@color/colorNobelGrey</item>
-
         <item name="editTextStyle">@style/EditTextStyle</item>
-
         <item name="android:buttonStyle">@style/ButtonStyle</item>
     </style>
 

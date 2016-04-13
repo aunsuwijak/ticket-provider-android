@@ -45,7 +45,7 @@ public class TicketActivity extends AppCompatActivity {
     }
 
     public void initComponents() {
-        toolbar.setTitle("Ticket");
+        toolbar.setTitle(ticket.getActivityName());
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
