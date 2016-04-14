@@ -22,6 +22,7 @@ import com.kanoonth.ticketprovider.R;
 import com.kanoonth.ticketprovider.managers.APIService;
 import com.kanoonth.ticketprovider.managers.BarcodeGenerator;
 import com.kanoonth.ticketprovider.managers.HttpManager;
+import com.kanoonth.ticketprovider.managers.MyObservable;
 import com.kanoonth.ticketprovider.managers.Observable;
 import com.kanoonth.ticketprovider.models.AccessToken;
 import com.kanoonth.ticketprovider.models.Element;
@@ -38,7 +39,7 @@ import retrofit2.Response;
 /**
  * Created by TAWEESOFT on 4/11/16 AD.
  */
-public class QrCodeFragment extends Fragment {
+public class QrCodeFragment extends Fragment implements MyObservable {
 
     private Observable observable = new Observable();
 

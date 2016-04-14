@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.kanoonth.ticketprovider.Constants;
@@ -21,9 +22,11 @@ import com.kanoonth.ticketprovider.models.Element;
 import com.kanoonth.ticketprovider.models.SideBarItem;
 import com.kanoonth.ticketprovider.models.User;
 import com.kanoonth.ticketprovider.ui.adapters.SideBarAdapter;
+import com.kanoonth.ticketprovider.ui.fragments.ProfileFragment;
 import com.kanoonth.ticketprovider.ui.fragments.QrCodeFragment;
 import com.kanoonth.ticketprovider.ui.fragments.TicketListFragment;
 
+import butterknife.OnClick;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 import net.simonvt.menudrawer.MenuDrawer;
 
@@ -44,7 +47,9 @@ public class MainActivity extends AppCompatActivity implements Observer {
     private int activeItem = 0;
     private QrCodeFragment qrCodeFragment;
     private TicketListFragment ticketListFragment;
-
+    private ProfileFragment profileFragment;
+    private List<SideBarItem> items;
+    private SideBarAdapter adapter;
     private static final int QR_CODE_FRAGMENT = 0;
     private static final int TICKET_LIST_FRAGMENT = 1;
 
@@ -78,22 +83,22 @@ public class MainActivity extends AppCompatActivity implements Observer {
 
         SideBarItem tickets = new SideBarItem(getString(R.string.my_tickets), R.drawable.my_ticket);
         final SideBarItem qrCode = new SideBarItem(getString(R.string.qr_code), R.drawable.qr_code);
-        final List<SideBarItem> items = new ArrayList<>();
+        items = new ArrayList<>();
         items.add(qrCode);
         items.add(tickets);
         items.get(0).setActive(true);
-        final SideBarAdapter adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
+        adapter = new SideBarAdapter(this,R.layout.drawer_item_layout,items);
         lvSideBar.setAdapter(adapter);
         lvSideBar.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SideBarItem active = items.get(activeItem);
-                active.setActive(!active.isActive());
+                active.setActive(false);
                 SideBarItem currentItem = items.get(position);
-                currentItem.setActive(!currentItem.isActive());
+                currentItem.setActive(true);
                 adapter.notifyDataSetChanged();
-                menuDrawer.closeMenu(true);
+                menuDrawer.toggleMenu(true);
                 activeItem = position;
                 switch (position){
                     case QR_CODE_FRAGMENT :
@@ -105,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements Observer {
                 }
             }
         });
-
         AccessToken accessToken = getAccessToken();
 
         Call<Element> currentUser =
@@ -118,6 +122,8 @@ public class MainActivity extends AppCompatActivity implements Observer {
             public void onResponse(Call<Element> call, Response<Element> response) {
                 if (response.isSuccessful()) {
                     User user = response.body().getUser();
+                    profileFragment = new ProfileFragment(user);
+                    profileFragment.addObserver(MainActivity.this);
                     tvName.setText(user.getName());
                     tvEmail.setText(user.getEmail());
                 }else{
@@ -151,5 +157,13 @@ public class MainActivity extends AppCompatActivity implements Observer {
     @Override
     public void update(Observable observable, Object data) {
         menuDrawer.toggleMenu(true);
+    }
+
+    @OnClick(R.id.containerProfile)
+    public void showProfileFragment() {
+        items.get(activeItem).setActive(false);
+        adapter.notifyDataSetChanged();
+        menuDrawer.toggleMenu(true);
+        replaceFragment(profileFragment);
     }
 }
