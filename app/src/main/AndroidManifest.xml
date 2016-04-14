@@ -24,14 +24,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.views.SignupActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.views.MainActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.views.LoginActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".ui.views.TicketActivity"
             android:screenOrientation="portrait">
         </activity>
     </application>

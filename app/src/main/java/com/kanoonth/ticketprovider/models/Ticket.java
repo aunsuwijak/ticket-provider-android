@@ -2,6 +2,7 @@ package com.kanoonth.ticketprovider.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import io.realm.RealmObject;
@@ -9,7 +10,7 @@ import io.realm.RealmObject;
 /**
  * Created by suwijakchaipipat on 4/4/2016 AD.
  */
-public class Ticket extends RealmObject {
+public class Ticket extends RealmObject implements Serializable{
 
     @SerializedName("id") String id;
     @SerializedName("ticket_type_name") String ticketTypeName;
