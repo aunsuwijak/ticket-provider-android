@@ -128,6 +128,9 @@ public class ProfileFragment extends Fragment implements MyObservable {
                     // TODO: Handle errors
                     Log.e("error" ,response.raw().toString());
                 }
+                etOldPassword.setText("");
+                etNewPassword.setText("");
+                etConfirmPassword.setText("");
             }
 
             @Override
