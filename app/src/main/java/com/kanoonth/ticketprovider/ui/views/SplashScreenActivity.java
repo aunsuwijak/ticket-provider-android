@@ -22,32 +22,36 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SplashScreenActivity extends AppCompatActivity {
+
     @Bind(R.id.progressBar) AnimateHorizontalProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         ButterKnife.bind(this);
         initComponents();
-        progressBar.setProgressWithAnim(1000);
+
         SharedPreferences preferences = getSharedPreferences(Constants.APP_NAME, Context.MODE_PRIVATE);
         AccessToken accessToken = new AccessToken();
         accessToken.setAccessToken(preferences.getString(Constants.ACCESS_TOKEN, null));
         accessToken.setTokenType(preferences.getString(Constants.TOKEN_TYPE, null));
-        if(accessToken.getAccessToken() == null){
-            goLogin();
-        }else{
+
+        if (accessToken.getAccessToken() == null) {
+            navigateToLogin();
+        } else {
             Call<Element> element = HttpManager
                     .getInstance().getAPIService(APIService.class,accessToken).currentUser();
             element.enqueue(new Callback<Element>() {
                 @Override
                 public void onResponse(Call<Element> call, Response<Element> response) {
-                    if(response.isSuccessful()){
-                        goMain();
-                    }else{
+                    if (response.isSuccessful()) {
+                        navigateToMain();
+                    } else {
                         // TODO: Handle errors
                         Log.e("errors" , response.raw().toString());
-                        goLogin();
+
+                        navigateToLogin();
                     }
                 }
 
@@ -55,24 +59,26 @@ public class SplashScreenActivity extends AppCompatActivity {
                 public void onFailure(Call<Element> call, Throwable t) {
                     // TODO: Handle errors
                     Log.e("errors" , t.getMessage());
-                    goLogin();
+
+                    navigateToLogin();
                 }
             });
         }
     }
 
-    public void goLogin() {
-        Intent intent = new Intent(this,LoginActivity.class);
+    public void navigateToLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
-    public void goMain() {
-        Intent intent = new Intent(this,MainActivity.class);
+    public void navigateToMain() {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     public void initComponents() {
         progressBar.setMax(1000);
         progressBar.setProgress(0);
+        progressBar.setProgressWithAnim(1000);
     }
 }
