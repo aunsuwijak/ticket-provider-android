@@ -57,6 +57,7 @@ public class TicketActivity extends AppCompatActivity {
         Glide
                 .with(this)
                 .load(ticket.getTicketTypeImageUrl())
+                .placeholder(R.drawable.loading_placeholder_big)
                 .centerCrop()
                 .crossFade()
                 .into(imgTicket);
