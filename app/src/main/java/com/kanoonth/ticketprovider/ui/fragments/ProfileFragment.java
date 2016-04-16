@@ -60,15 +60,11 @@ public class ProfileFragment extends Fragment implements MyObservable {
     private User user;
     private Observable observable = new Observable();
 
-    public ProfileFragment(User user) {
-        this.user = user;
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.profile_layout , container , false);
-        ButterKnife.bind(this,v);
+        View v = inflater.inflate(R.layout.profile_layout, container, false);
+        ButterKnife.bind(this, v);
         initComponents();
         return v;
     }
@@ -94,22 +90,26 @@ public class ProfileFragment extends Fragment implements MyObservable {
         String oldPass = etOldPassword.getText().toString().trim();
         String newPass = etNewPassword.getText().toString().trim();
         String confirmPass = etConfirmPassword.getText().toString().trim();
-        if(name.length() > 0)
+
+        if (name.length() > 0) {
             user.setName(name);
-        if(birthDate.length() > 0){
+        }
+
+        if (birthDate.length() > 0) {
             try {
                 user.setBirthdate(format.parse(birthDate));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
         }
-        if(oldPass.length() > 0){
+
+        if (oldPass.length() > 0) {
             user.setCurrentPassword(oldPass);
-            if(newPass.length() > 0 && confirmPass.length() > 0){
-                if(newPass.equals(confirmPass)){
+            if (newPass.length() > 0 && confirmPass.length() > 0) {
+                if (newPass.equals(confirmPass)) {
                     user.setPassword(newPass);
                     user.setPasswordConfimation(confirmPass);
-                }else{
+                } else {
                     Toast.makeText(this.getContext(),getString(R.string.not_match_pass) , Toast.LENGTH_SHORT).show();
                 }
             }
@@ -122,11 +122,11 @@ public class ProfileFragment extends Fragment implements MyObservable {
         updateUserCall.enqueue(new Callback<Element>() {
             @Override
             public void onResponse(Call<Element> call, Response<Element> response) {
-                if(response.isSuccessful()){
-                    Toast.makeText(ProfileFragment.this.getContext(), getString(R.string.success) , Toast.LENGTH_SHORT).show();
-                }else{
+                if (response.isSuccessful()) {
+                    Toast.makeText(ProfileFragment.this.getContext(), getString(R.string.success), Toast.LENGTH_SHORT).show();
+                } else {
                     // TODO: Handle errors
-                    Log.e("error" ,response.raw().toString());
+                    Log.e("error", response.raw().toString());
                 }
                 etOldPassword.setText("");
                 etNewPassword.setText("");
@@ -135,7 +135,7 @@ public class ProfileFragment extends Fragment implements MyObservable {
 
             @Override
             public void onFailure(Call<Element> call, Throwable t) {
-                Log.e("error" , t.getMessage().toString());
+                Log.e("error", t.getMessage().toString());
             }
         });
     }
@@ -166,6 +166,10 @@ public class ProfileFragment extends Fragment implements MyObservable {
 
     @OnClick(R.id.etBirthDate)
     public void showDatePicker() {
-        new DatePickerDialog(this.getContext(), dateSetListener , user.getBirthdate().getYear()+1900 , user.getBirthdate().getMonth(),user.getBirthdate().getDate()).show();
+        new DatePickerDialog(this.getContext(), dateSetListener, user.getBirthdate().getYear()+1900, user.getBirthdate().getMonth(), user.getBirthdate().getDate()).show();
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

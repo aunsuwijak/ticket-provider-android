@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.kanoonth.ticketprovider.Constants;
@@ -122,7 +121,8 @@ public class MainActivity extends AppCompatActivity implements Observer {
             public void onResponse(Call<Element> call, Response<Element> response) {
                 if (response.isSuccessful()) {
                     User user = response.body().getUser();
-                    profileFragment = new ProfileFragment(user);
+                    profileFragment = new ProfileFragment();
+                    profileFragment.setUser(user);
                     profileFragment.addObserver(MainActivity.this);
                     tvName.setText(user.getName());
                     tvEmail.setText(user.getEmail());
