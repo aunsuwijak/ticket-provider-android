@@ -56,7 +56,7 @@ public class SignupActivity extends AppCompatActivity{
 
     @OnClick(R.id.signupButton)
     public void signup() {
-        final ProgressDialog dialog = ProgressDialog.show(SignupActivity.this, null, "Please wait! ...", true);
+        final ProgressDialog dialog = ProgressDialog.show(SignupActivity.this, null, getResources().getString(R.string.please_wait), true);
         dialog.setCancelable(true);
 
         String email = emailEditText.getText().toString().trim();

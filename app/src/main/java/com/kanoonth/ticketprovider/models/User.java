@@ -15,6 +15,7 @@ public class User {
     @SerializedName("password_confirmation") private String passwordConfimation;
     @SerializedName("name") private String name;
     @SerializedName("birthdate") private Date birthdate;
+    @SerializedName("current_password") private String currentPassword;
 
     public String getId() {
         return id;
@@ -58,5 +59,13 @@ public class User {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public String getCurrentPassword() {
+        return currentPassword;
+    }
+
+    public void setCurrentPassword(String currentPassword) {
+        this.currentPassword = currentPassword;
     }
 }

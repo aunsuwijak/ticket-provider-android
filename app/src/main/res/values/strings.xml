@@ -18,4 +18,16 @@
     <string name="price">Price</string>
     <string name="currency">Baht</string>
     <string name="date">Date</string>
+    <string name="information">Information</string>
+    <string name="security">Security</string>
+    <string name="full_name">Full name (Optional)</string>
+    <string name="birth_date">Birth date (Optional)</string>
+    <string name="old_pass">Old password</string>
+    <string name="new_pass">New password</string>
+    <string name="confirm_pass">Confirm new password</string>
+    <string name="not_match_pass">New password and confirm password are not match</string>
+    <string name="incorrect_pass">Password is not correct</string>
+    <string name="profile">Profile</string>
+    <string name="success">Success</string>
+    <string name="update">Update</string>
 </resources>

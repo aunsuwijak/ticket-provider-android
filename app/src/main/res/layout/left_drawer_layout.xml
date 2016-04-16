@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/lvSidebar"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/relativeLayout"
+        android:layout_below="@+id/containerProfile"
         android:dividerHeight="0dp"
         android:divider="@null" />
 
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/containerProfile">
         <ImageView
             android:layout_width="45dp"
             android:layout_height="45dp"

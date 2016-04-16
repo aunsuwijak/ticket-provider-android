@@ -17,6 +17,7 @@ import com.kanoonth.ticketprovider.Constants;
 import com.kanoonth.ticketprovider.R;
 import com.kanoonth.ticketprovider.managers.APIService;
 import com.kanoonth.ticketprovider.managers.HttpManager;
+import com.kanoonth.ticketprovider.managers.MyObservable;
 import com.kanoonth.ticketprovider.managers.Observable;
 import com.kanoonth.ticketprovider.models.AccessToken;
 import com.kanoonth.ticketprovider.models.Element;
@@ -35,7 +36,7 @@ import retrofit2.Response;
 /**
  * Created by TAWEESOFT on 4/7/16 AD.
  */
-public class TicketListFragment extends Fragment {
+public class TicketListFragment extends Fragment implements MyObservable {
 
     private Observable observable = new Observable();
 
