@@ -72,6 +72,7 @@ public class TicketListAdapter extends RecyclerView.Adapter<TicketListAdapter.Vi
         Glide
                 .with(context)
                 .load(ticket.getTicketTypeImageUrl())
+                .placeholder(R.drawable.loading_placeholder)
                 .centerCrop()
                 .crossFade()
                 .into(holder.imgTicket);

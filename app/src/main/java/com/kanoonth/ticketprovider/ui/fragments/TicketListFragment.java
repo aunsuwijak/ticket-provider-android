@@ -1,5 +1,6 @@
 package com.kanoonth.ticketprovider.ui.fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -42,7 +43,7 @@ public class TicketListFragment extends Fragment implements MyObservable {
 
     @Bind(R.id.rv) RecyclerView rv;
     @Bind(R.id.toolbar) Toolbar toolbar;
-
+    
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -53,6 +54,10 @@ public class TicketListFragment extends Fragment implements MyObservable {
     }
 
     public void initComponents() {
+        final ProgressDialog dialog = ProgressDialog.show(this.getContext(), null, getResources().getString(R.string.please_wait), true);
+        dialog.setCancelable(false);
+        dialog.show();
+
         toolbar.setTitle(getString(R.string.my_tickets));
         toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -84,12 +89,12 @@ public class TicketListFragment extends Fragment implements MyObservable {
                     // TODO: handle errors
                     Log.e("error" , response.raw().toString());
                 }
-
+                dialog.dismiss();
             }
 
             @Override
             public void onFailure(Call<Element> call, Throwable t) {
-
+                dialog.dismiss();
             }
         });
     }
