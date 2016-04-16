@@ -69,11 +69,13 @@ public class SplashScreenActivity extends AppCompatActivity {
     public void navigateToLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void navigateToMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     public void initComponents() {
