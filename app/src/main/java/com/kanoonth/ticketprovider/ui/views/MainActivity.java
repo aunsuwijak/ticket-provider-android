@@ -1,6 +1,7 @@
 package com.kanoonth.ticketprovider.ui.views;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -126,9 +127,9 @@ public class MainActivity extends AppCompatActivity implements Observer {
                     profileFragment.addObserver(MainActivity.this);
                     tvName.setText(user.getName());
                     tvEmail.setText(user.getEmail());
-                }else{
+                } else {
                     // TODO: Handle errors
-                    Log.e("errors" , response.raw().toString());
+                    Log.e("errors", response.raw().toString());
                 }
             }
 
@@ -165,5 +166,15 @@ public class MainActivity extends AppCompatActivity implements Observer {
         adapter.notifyDataSetChanged();
         menuDrawer.toggleMenu(true);
         replaceFragment(profileFragment);
+    }
+
+    @OnClick(R.id.containerLogout)
+    public void logout() {
+        SharedPreferences.Editor sharedPreferences = getSharedPreferences(Constants.APP_NAME , MODE_PRIVATE).edit();
+        sharedPreferences.clear();
+        sharedPreferences.apply();
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
