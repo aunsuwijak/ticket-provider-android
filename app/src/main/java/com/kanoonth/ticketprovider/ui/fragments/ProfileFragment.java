@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,6 +28,10 @@ import com.kanoonth.ticketprovider.models.AccessToken;
 import com.kanoonth.ticketprovider.models.Element;
 import com.kanoonth.ticketprovider.models.User;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -125,7 +130,17 @@ public class ProfileFragment extends Fragment implements MyObservable {
                 if (response.isSuccessful()) {
                     Toast.makeText(ProfileFragment.this.getContext(), getString(R.string.success), Toast.LENGTH_SHORT).show();
                 } else {
-                    // TODO: Handle errors
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        String error = jsonObject.getString("error");
+                        AlertDialog dialog = new AlertDialog.Builder(ProfileFragment.this.getContext()).create();
+                        dialog.setMessage(error);
+                        dialog.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     Log.e("error", response.raw().toString());
                 }
                 etOldPassword.setText("");

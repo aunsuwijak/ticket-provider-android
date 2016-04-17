@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -25,6 +26,10 @@ import com.kanoonth.ticketprovider.models.Element;
 import com.kanoonth.ticketprovider.models.Ticket;
 import com.kanoonth.ticketprovider.ui.adapters.TicketListAdapter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Observer;
 
@@ -86,7 +91,17 @@ public class TicketListFragment extends Fragment implements MyObservable {
                     rv.setLayoutManager(layoutManager);
                     rv.setAdapter(adapter);
                 }else{
-                    // TODO: handle errors
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        String error = jsonObject.getString("error");
+                        AlertDialog dialog = new AlertDialog.Builder(TicketListFragment.this.getContext()).create();
+                        dialog.setMessage(error);
+                        dialog.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     Log.e("error" , response.raw().toString());
                 }
                 dialog.dismiss();
