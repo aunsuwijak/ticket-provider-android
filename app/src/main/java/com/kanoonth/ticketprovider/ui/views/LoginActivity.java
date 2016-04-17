@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,8 +18,10 @@ import com.kanoonth.ticketprovider.managers.APIService;
 import com.kanoonth.ticketprovider.managers.HttpManager;
 import com.kanoonth.ticketprovider.models.AccessToken;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -97,8 +100,17 @@ public class LoginActivity extends AppCompatActivity {
                     dialog.dismiss();
                 } else {
                     dialog.dismiss();
-
-                    // TODO: Handle error message
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        String error = jsonObject.getString("error");
+                        AlertDialog dialog = new AlertDialog.Builder(LoginActivity.this).create();
+                        dialog.setMessage(error);
+                        dialog.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     Log.d("error", response.raw().toString());
                 }
             }

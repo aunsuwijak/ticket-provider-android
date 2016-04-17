@@ -8,6 +8,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Display;
@@ -28,6 +29,10 @@ import com.kanoonth.ticketprovider.models.AccessToken;
 import com.kanoonth.ticketprovider.models.Element;
 import com.kanoonth.ticketprovider.models.User;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.Observer;
 
 import butterknife.Bind;
@@ -105,8 +110,17 @@ public class QrCodeFragment extends Fragment implements MyObservable {
                     dialog.dismiss();
                 } else {
                     dialog.dismiss();
-
-                    // TODO: Handle this error
+                    try {
+                        JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                        String error = jsonObject.getString("error");
+                        AlertDialog dialog = new AlertDialog.Builder(QrCodeFragment.this.getContext()).create();
+                        dialog.setMessage(error);
+                        dialog.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                     Log.e("error", response.raw().toString());
                 }
             }

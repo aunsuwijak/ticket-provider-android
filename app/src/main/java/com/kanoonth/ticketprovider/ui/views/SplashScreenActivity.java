@@ -3,6 +3,7 @@ package com.kanoonth.ticketprovider.ui.views;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,11 @@ import com.kanoonth.ticketprovider.managers.APIService;
 import com.kanoonth.ticketprovider.managers.HttpManager;
 import com.kanoonth.ticketprovider.models.AccessToken;
 import com.kanoonth.ticketprovider.models.Element;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,18 +54,24 @@ public class SplashScreenActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         navigateToMain();
                     } else {
-                        // TODO: Handle errors
                         Log.e("errors" , response.raw().toString());
-
+                        try {
+                            JSONObject jsonObject = new JSONObject(response.errorBody().string());
+                            String error = jsonObject.getString("error");
+                            AlertDialog dialog = new AlertDialog.Builder(SplashScreenActivity.this).create();
+                            dialog.setMessage(error);
+                            dialog.show();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                         navigateToLogin();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Element> call, Throwable t) {
-                    // TODO: Handle errors
-                    Log.e("errors" , t.getMessage());
-
                     navigateToLogin();
                 }
             });
