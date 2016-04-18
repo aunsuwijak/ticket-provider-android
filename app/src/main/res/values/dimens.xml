@@ -16,7 +16,7 @@
     <dimen name="field_top_margin">13dp</dimen>
     <dimen name="input_field_left_margin">18dp</dimen>
     <dimen name="button_top_margin">18dp</dimen>
-    <dimen name="logo_size">90dp</dimen>
+    <dimen name="logo_size">79dp</dimen>
     <dimen name="sign_text_each_top_margin">3dp</dimen>
     <dimen name="image_icon_size">14dp</dimen>
     <dimen name="left_menu_icon_margin">17dp</dimen>
