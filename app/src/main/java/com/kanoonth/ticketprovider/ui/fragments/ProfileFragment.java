@@ -181,7 +181,12 @@ public class ProfileFragment extends Fragment implements MyObservable {
 
     @OnClick(R.id.etBirthDate)
     public void showDatePicker() {
-        new DatePickerDialog(this.getContext(), dateSetListener, user.getBirthdate().getYear()+1900, user.getBirthdate().getMonth(), user.getBirthdate().getDate()).show();
+        Date date;
+        if(user.getBirthdate() == null)
+            date = new Date();
+        else
+            date = user.getBirthdate();
+        new DatePickerDialog(this.getContext(), dateSetListener, date.getYear()+1900, date.getMonth(), date.getDate()).show();
     }
 
     public void setUser(User user) {
