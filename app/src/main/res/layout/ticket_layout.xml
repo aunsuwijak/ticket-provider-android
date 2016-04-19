@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/container"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical|center_horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/imgTicket"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTicketName"
+                android:layout_below="@+id/tvTicketDesc"
+                android:layout_alignLeft="@+id/tvTicketDesc"
+                android:layout_alignStart="@+id/tvTicketDesc"
+                android:textSize="@dimen/appHeaderTextSize"
+                android:layout_marginLeft="@dimen/fields_side_margin"
+                android:layout_marginRight="@dimen/fields_side_margin"
+                android:textColor="#FFF"
+                android:singleLine="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvTicketDesc"
+                android:singleLine="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/sign_text_each_top_margin"
+                android:textSize="@dimen/appTextSize"
+                android:textColor="#FFF" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

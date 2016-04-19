@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">SQUARE</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot your password ?</string>
+    <string name="hint_email">Email address</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirmation_password">Password Confirmation</string>
+    <string name="hint_name">Name</string>
+    <string name="have_account">Already have an account ?</string>
+    <string name="my_tickets">My Tickets</string>
+    <string name="logout">Logout</string>
+    <string name="qr_code">QR Code</string>
+    <string name="please_wait">Please wait! &#8230;</string>
+    <string name="loading">Loading&#8230;</string>
+    <string name="zone">Zone</string>
+    <string name="seat">Seat</string>
+    <string name="price">Price</string>
+    <string name="currency">Baht</string>
+    <string name="date">Date</string>
+    <string name="information">Information</string>
+    <string name="security">Security</string>
+    <string name="full_name">Full name (Optional)</string>
+    <string name="birth_date">Birth date (Optional)</string>
+    <string name="old_pass">Old password</string>
+    <string name="new_pass">New password</string>
+    <string name="confirm_pass">Confirm new password</string>
+    <string name="not_match_pass">New password and confirm password are not match</string>
+    <string name="incorrect_pass">Password is not correct</string>
+    <string name="profile">Profile</string>
+    <string name="success">Success</string>
+    <string name="update">Update</string>
+</resources>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorCarade">
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvSidebar"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/containerProfile"
+        android:dividerHeight="0dp"
+        android:divider="@null"
+        android:layout_above="@+id/containerLogout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/containerProfile">
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/imgProfile"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/profile_icon"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imgProfile"
+            android:layout_toEndOf="@+id/imgProfile"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvName"
+                android:textSize="@dimen/appTextSize"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvEmail"
+                android:textSize="@dimen/appTextSize"
+                android:textColor="@color/colorButtermilk"
+                android:singleLine="true" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="@dimen/left_menu_each_vertial_margin"
+        android:paddingBottom="@dimen/left_menu_each_vertial_margin"
+        android:id="@+id/containerLogout"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="@dimen/left_menu_icon_size"
+            android:layout_height="@dimen/left_menu_icon_size"
+            android:id="@+id/imageView3"
+            android:layout_marginRight="@dimen/left_menu_icon_margin"
+            android:src="@drawable/arrow"
+            android:layout_marginLeft="@dimen/left_menu_icon_margin" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/appTextSize"
+            android:text="@string/logout" />
+    </LinearLayout>
+</RelativeLayout>

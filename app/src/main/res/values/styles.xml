@@ -1,0 +1,51 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:textColor">@color/colorNobelGrey</item>
+        <item name="android:textSize">@dimen/appTextSize</item>
+        <item name="colorPrimary">@color/colorNobelGrey</item>
+        <item name="colorPrimaryDark">@color/colorNobelGrey</item>
+        <item name="colorAccent">@color/colorNobelGrey</item>
+        <item name="editTextStyle">@style/EditTextStyle</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+    </style>
+
+    <!-- TODO: Replace with 9 patch -->
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/colorNobelGrey</item>
+        <item name="android:textColorHint">@color/colorNobelGrey</item>
+        <item name="android:textSize">@dimen/appEditTextSize</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">#FFF</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="AuthButton" parent="ButtonStyle">
+        <item name="android:layout_width">@dimen/authButtonWidth</item>
+        <item name="android:layout_height">@dimen/authButtonHeight</item>
+        <item name="android:textSize">@dimen/appTextSize</item>
+    </style>
+
+    <style name="TextViewHeader">
+        <item name="fontPath">fonts/ThaiSansNeue-SemiBold.ttf</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/appHeaderTextSize</item>
+    </style>
+
+    <style name="TextViewLabel">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/appLabelTextSize</item>
+    </style>
+
+    <style name="ToolBarStyle">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:elevation">6dp</item>
+    </style>
+</resources>
