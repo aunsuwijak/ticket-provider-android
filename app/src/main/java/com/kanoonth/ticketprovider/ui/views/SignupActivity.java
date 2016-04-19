@@ -2,6 +2,7 @@ package com.kanoonth.ticketprovider.ui.views;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -62,9 +63,9 @@ public class SignupActivity extends AppCompatActivity{
         final ProgressDialog dialog = ProgressDialog.show(SignupActivity.this, null, getResources().getString(R.string.please_wait), true);
         dialog.setCancelable(true);
 
-        String email = emailEditText.getText().toString().trim();
+        final String email = emailEditText.getText().toString().trim();
         String name = nameEditText.getText().toString().trim();
-        String password = passwordEditText.getText().toString().trim();
+        final String password = passwordEditText.getText().toString().trim();
         String passwordConfirmation = passwordConfirmationEditText.getText().toString().trim();
 
         User user = new User();
@@ -90,8 +91,8 @@ public class SignupActivity extends AppCompatActivity{
                     map.put("client_id", Constants.CLIENT_ID);
                     map.put("client_secret", Constants.CLIENT_SECRET);
                     map.put("grant_type", Constants.GRANT_TYPE);
-                    map.put("email", user.getEmail());
-                    map.put("password", user.getPassword());
+                    map.put("email", email);
+                    map.put("password", password);
 
                     Call<AccessToken> accessTokenCall = HttpManager
                             .getInstance()
@@ -112,6 +113,8 @@ public class SignupActivity extends AppCompatActivity{
                                 editor.apply();
 
                                 dialog.dismiss();
+
+                                navigateToMain();
                             } else {
                                 dialog.dismiss();
                                 try {
@@ -162,4 +165,8 @@ public class SignupActivity extends AppCompatActivity{
         finish();
     }
 
+    public void navigateToMain() {
+        Intent intent = new Intent(SignupActivity.this , MainActivity.class);
+        startActivity(intent);
+    }
 }
